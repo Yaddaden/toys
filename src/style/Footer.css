@@ -1,0 +1,14 @@
+.Footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: gray;
+    min-height: 150px;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .textFooter {
+    color: white;
+    font-size: 20px;
+  }

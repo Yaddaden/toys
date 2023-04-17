@@ -45,7 +45,7 @@ const Home = () => {
             veniam libero ducimus at maxime, doloremque odit suscipit saepe
             consequatur, ipsum provident laborum quisquam possimus consectetur
             dignissimos ipsa totam nisi tempore esse? Adipisci autem assumenda
-            cumque suscipit molestiae quas fuga temporibus.
+            cumque suscipit molestiae quas .
           </p>
 
           <div className="homeImg">

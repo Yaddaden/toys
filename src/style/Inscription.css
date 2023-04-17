@@ -1,0 +1,97 @@
+.containerInscription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    }
+    .inscripLabel label {
+     font-size: 20px;
+    }
+    
+    .inscripLabel input{
+       margin: 20px 30px;
+       width: 500px;
+       height: 30px;
+       border: 1px solid green;
+       background: rgb(222, 240, 195);
+    }
+    .blockB{
+    margin-right: 26px;
+    }
+    .blockC{
+       margin-right: 5px;
+       }
+    .blockD{
+       margin-right: 65px;
+       }
+       .blockE{
+          margin-right: 50px;
+          }
+    
+    
+    /* bouton  */
+    .insButton{
+      
+       width: 100px;
+       height: 40px;
+       border-radius: 25px;
+       border: none;
+       background: rgb(244, 176, 6);
+       cursor: pointer;
+       font-size: 20px;
+       font-weight: bold;
+       color: green;
+       margin-top: 20px;
+       box-shadow: 0 3px rgb(133, 97, 13);
+    }
+    .insButton:hover{
+       transform: translateY(1px);
+       box-shadow: 0 1px rgb(233, 168, 18);
+    }
+    .insButton:active{
+       transform: translateY(2px);
+       box-shadow: 0 1px rgb(233, 168, 18);;
+    }
+    
+    
+    @media screen and (max-width: 910px){
+       .inscripLabel input{
+    width: 400px;
+    }
+    .inscripLabel label{
+       font-size: 18px;
+    }
+    .insButton{
+       font-size: 18px;
+    }
+    }
+    
+    @media screen and (max-width: 768px){
+     
+       .inscripLabel input{
+          width: 200px;
+          margin-top: 5px;
+          }
+          .inscripLabel label{
+             display: flex;
+          flex-direction: column;
+          align-items: center;
+             font-size: 15px;
+          }
+          .insButton{
+             font-size: 15px;
+          }
+          .blockB{
+             margin-right: 0;
+             }
+        .blockC{
+                margin-right: 0;
+                }
+        .blockD{
+                margin-right: 0;
+                }
+        .blockE{
+                margin-right: 0;
+              }
+    
+    }
