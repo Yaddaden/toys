@@ -12,11 +12,11 @@ const Vendre = () => {
       .then((jeux) => setData(jeux))
       .catch((error) => console.error(error));
     console.log(data);
-  }, []);
+  });
   return (
     <div className="jouet">
       <BannerJouets />
-      <h1 className="jouetTitle">Les articles jouets par tranche d'age</h1>
+      <h1 className="jouetTitle">Les jouets par tranche d'age</h1>
       <p className="jouetText">Jouets à des petits prix</p>
       {data && data.map(({ prix }, k) => <p key={k}>{prix}</p>)}
       {data &&
