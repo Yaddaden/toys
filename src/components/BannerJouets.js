@@ -1,5 +1,6 @@
 import React from "react";
 import bannerJouets from "../asset/imgBannerJouets.png";
+import "../style/BannerJouet.css";
 
 const BannerJouets = () => {
   return (
