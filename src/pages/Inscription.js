@@ -1,61 +1,92 @@
-import React, { useState, useEffect } from "react";
-import "../style/Inscription.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Inscription = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
+    first_name: "",
+    last_name: "",
     telephone: "",
     email: "",
-    motDePasse: "",
+    password: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    // const { name, value } = e.target;
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Données du formulaire :", formData);
-  };
-  const [form, setForm] = React.useState();
 
-  useEffect(() => {
-    fetch("/inscription")
-      .then((res) => res.json())
-      .then((form) => setForm(form.message));
-  }, []);
+    // vérifier la validité de l'e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("L'adresse e-mail n'est pas valide.");
+      return;
+    }
+
+    // vérifier la longueur minimale du mot de passe
+    if (formData.password.length < 8) {
+      toast.error("Le mot de passe doit contenir au moins 8 caractères.");
+      return;
+    }
+
+    // Ajouter une validation pour vérifier si les champs sont vides
+    const { first_name, last_name, telephone, email, password } = formData;
+    if (!first_name || !last_name || !telephone || !email || !password) {
+      toast.error(
+        "Veuillez remplir tous les champs du formulaire pour s'inscrire sur votre site."
+      );
+      return;
+    }
+
+    fetch("http://localhost:3001/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        console.log("cest bien enregistré ");
+
+        navigate("/connexion");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
-      <h1 className="titleIncription">Créerz votre compte</h1>
+      <h1 className="titleConnexion">Créer votre compte</h1>
       <form className="containerInscription" onSubmit={handleSubmit}>
         <div className="inscripLabel">
           <div className="blockA">
-            <label htmlFor="nom">Nom : </label>
+            <label htmlFor="first_name">Nom : </label>
 
             <input
               type="text"
-              id="nom"
-              name="nom"
-              value={formData.nom}
+              id="first_name"
+              name="first_name"
+              placeholder="Votre Nom"
+              value={formData.first_name}
               onChange={handleChange}
             />
           </div>
         </div>
         <div className="inscripLabel">
           <div className="blockB">
-            <label htmlFor="prenom">Prénom : </label>
+            <label htmlFor="last_name">Prénom : </label>
 
             <input
               type="text"
-              id="prenom"
-              name="prenom"
-              value={formData.prenom}
+              id="last_name"
+              name="last_name"
+              placeholder="Votre Prénom"
+              value={formData.last_name}
               onChange={handleChange}
             />
           </div>
@@ -68,6 +99,7 @@ const Inscription = () => {
               type="number"
               id="telephone"
               name="telephone"
+              placeholder="Téléphone: 00.00.00.00.00"
               value={formData.telephone}
               onChange={handleChange}
             />
@@ -82,6 +114,7 @@ const Inscription = () => {
               type="email"
               id="email"
               name="email"
+              placeholder="mail@mail.com"
               value={formData.email}
               onChange={handleChange}
             />
@@ -89,13 +122,14 @@ const Inscription = () => {
         </div>
         <div className="inscripLabel">
           <div className="blockD">
-            <label htmlFor="motDePasse">Mot de passe : </label>
+            <label htmlFor="password">Mot de passe : </label>
 
             <input
               type="password"
-              id="motDePasse"
-              name="motDePasse"
-              value={formData.motDePasse}
+              id="password"
+              name="password"
+              placeholder="***********"
+              value={formData.password}
               onChange={handleChange}
             />
           </div>
@@ -103,8 +137,8 @@ const Inscription = () => {
         <button className="insButton" type="submit">
           Valider
         </button>
-        <p>{!form ? "Chargement..." : form}</p>
       </form>
+      <ToastContainer />
     </>
   );
 };

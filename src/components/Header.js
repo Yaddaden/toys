@@ -15,36 +15,42 @@ const Header = () => {
         <img src={logo} alt="logo" className="logo" />
       </Link>
       <div className="containerButton">
-        <button
-          className={`hamburger${isOpen && !isOpen ? "open" : ""}`}
+        <div
+          className={`hamburger ${isOpen ? "open" : ""} `}
           onClick={toggleMenu}
-        ></button>
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-        <nav className={`menu${isOpen ? "open" : ""}`}>
-          <div className="containerLink">
+        <nav className={`menu${isOpen ? " open" : ""}`}>
+          <ul className="containerLink">
             <NavLink
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              end
+              exact
               to="/"
             >
               <li> Accueil</li>
             </NavLink>
+
             <NavLink
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              end
-              to="/vendre"
+              exact
+              to="/achat"
             >
-              <li>Vendre</li>
+              <li>Achat</li>
             </NavLink>
+
             <NavLink
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              end
+              exact
               to="/bebe"
             >
               <li>Bébé</li>
@@ -53,7 +59,7 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              end
+              exact
               to="/enfant"
             >
               <li>Enfant</li>
@@ -62,12 +68,12 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              end
+              exact
               to="/contact"
             >
               <li>Contact </li>
             </NavLink>
-          </div>
+          </ul>
         </nav>
       </div>
     </header>
@@ -75,3 +81,4 @@ const Header = () => {
 };
 
 export default Header;
+//___________________________________________________________________________

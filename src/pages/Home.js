@@ -7,12 +7,6 @@ import car from "../asset/imgVoiture.jpg";
 
 const Home = () => {
   document.title = "home";
-  const [data, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
 
   return (
     <>
@@ -22,15 +16,12 @@ const Home = () => {
             <Link to="/connexion">
               <button className="connexion">Connexion</button>
             </Link>
-            <Link to="/Inscription">
-              <button className="inscription">Inscription</button>
-            </Link>
           </div>
         </nav>
         <BannerHome>
           <h1 className="homeTitle">The kids house</h1>
         </BannerHome>
-        <p>{!data ? "Chargement..." : data}</p>
+
         <div className="containerText">
           <p className="homeTexte">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus

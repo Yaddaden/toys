@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Vendre from "./pages/Vendre";
+import Achat from "./pages/Achat";
 import Error from "./pages/Error";
 import Bebe from "./pages/Bebe";
 import Enfant from "./pages/Enfant";
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/vendre" element={<Vendre />} />
+      <Route path="/achat" element={<Achat />} />
       <Route path="/bebe" element={<Bebe />} />
       <Route path="/enfant" element={<Enfant />} />
       <Route path="/contact" element={<Contact />} />
