@@ -1,9 +1,10 @@
 import React from "react";
 import BannerHome from "../components/BannerHome";
-import { Link } from "react-router-dom";
+
 import "../style/Home.css";
 import cub from "../asset/imgCub.jpg";
 import car from "../asset/imgVoiture.jpg";
+import Connexion from "./Connexion";
 
 const Home = () => {
   document.title = "home";
@@ -11,16 +12,10 @@ const Home = () => {
   return (
     <>
       <div className="home">
-        <nav>
-          <div className="homeUl">
-            <Link to="/connexion">
-              <button className="connexion">Connexion</button>
-            </Link>
-          </div>
-        </nav>
         <BannerHome>
           <h1 className="homeTitle">The kids house</h1>
         </BannerHome>
+        <Connexion />
 
         <div className="containerText">
           <p className="homeTexte">

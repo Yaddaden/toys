@@ -54,7 +54,7 @@ const Inscription = () => {
       .then((res) => {
         console.log("cest bien enregistré ");
 
-        navigate("/connexion");
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };

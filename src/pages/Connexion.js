@@ -59,61 +59,68 @@ const Connexion = () => {
 
   return (
     <>
-      <h1 className="titleConnexion">Se connecter</h1>
-
-      <form className="containerConnexion" onSubmit={handleSubmit}>
-        <div className="connexionLabel">
-          <div className="blockConnexion">
-            <label htmlFor="email">Email : </label>
-
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="mail@mail.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="connexionLabel">
-          <div className="blockConnexion">
-            <label htmlFor="password">Mot de passe : </label>
-
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="***********"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <button className="insButton" type="submit">
-          Connexion
-        </button>
-      </form>
-
       {!isLoggedIn ? (
-        <div className="inscriptionLink">
-          <p>
-            Vous n'avez pas de compte ?{" "}
-            <span
-              className="navigInscription"
-              onClick={() => navigate("/inscription")}
-            >
-              Cliquez ici
-            </span>
-          </p>
-        </div>
-      ) : null}
+        <>
+          <h1 className="titleConnexion">Se connecter</h1>
+          <form className="containerConnexion" onSubmit={handleSubmit}>
+            <div className="connexionLabel">
+              <div className="blockConnexion">
+                <label htmlFor="email">Email : </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="mail@mail.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="connexionLabel">
+              <div className="blockConnexion">
+                <label htmlFor="password">Mot de passe : </label>
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="***********"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <button className="insButton" type="submit">
+              Connexion
+            </button>
+          </form>
+
+          {!isLoggedIn ? (
+            <div className="inscriptionLink">
+              <p>
+                Vous n'avez pas de compte ?{" "}
+                <span
+                  className="navigInscription"
+                  onClick={() => navigate("/inscription")}
+                >
+                  Cliquez ici
+                </span>
+              </p>
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <h1 className="msgBienvenue">Bienvenue!! vous êtes connectés </h1>
+      )}
+
       {isLoggedIn && (
         <button className="insButtonD" onClick={handleLogout}>
           Déconnexion
         </button>
       )}
+
       <ToastContainer />
     </>
   );
