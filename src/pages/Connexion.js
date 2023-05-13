@@ -3,6 +3,7 @@ import "../style/Connexion.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Vendre from "./Vendre";
 
 const Connexion = () => {
   const navigate = useNavigate();
@@ -11,20 +12,34 @@ const Connexion = () => {
     password: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [vendreVisible, setVendreVisible] = useState(false);
 
   useEffect(() => {
     // Vérifie si l'utilisateur est déjà connecté
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
+      const vendreVisible = localStorage.getItem("vendreVisible");
+      if (vendreVisible === "true") {
+        setVendreVisible(true);
+      }
     }
   }, []);
+  useEffect(() => {
+    // Enregistre la valeur actuelle de vendreVisible dans localStorage
+    localStorage.setItem("vendreVisible", vendreVisible.toString());
+  }, [vendreVisible]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleLogout = () => {
+    // Réinitialiser les champs de formulaire
+    setFormData({
+      email: "",
+      password: "",
+    });
     // Déconnexion de l'utilisateur
     localStorage.removeItem("token");
     setIsLoggedIn(false);
@@ -50,8 +65,8 @@ const Connexion = () => {
         }
         localStorage.setItem("token", data.token);
         setIsLoggedIn(true);
+        setVendreVisible(true);
         toast.success("Vous êtes connecté.");
-        navigate("/vendre");
       })
 
       .catch((err) => console.log(err));
@@ -59,6 +74,13 @@ const Connexion = () => {
 
   return (
     <>
+      {/* Le bouton déconnexion */}
+      {isLoggedIn && (
+        <button className="insButtonD" onClick={handleLogout}>
+          Déconnexion
+        </button>
+      )}
+      {/* Cette partie de isLoggedIn seras invisile pendant la connexion. */}
       {!isLoggedIn ? (
         <>
           <h1 className="titleConnexion">Se connecter</h1>
@@ -112,15 +134,11 @@ const Connexion = () => {
           ) : null}
         </>
       ) : (
-        <h1 className="msgBienvenue">Bienvenue!! vous êtes connectés </h1>
+        <>
+          <h1 className="msgBienvenue">Bienvenue!! vous êtes connectés </h1>
+          {vendreVisible && <Vendre />}
+        </>
       )}
-
-      {isLoggedIn && (
-        <button className="insButtonD" onClick={handleLogout}>
-          Déconnexion
-        </button>
-      )}
-
       <ToastContainer />
     </>
   );
