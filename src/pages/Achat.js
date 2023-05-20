@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import PublicationsList from "../components/PublicationsList";
 
-function Achat() {
+const Achat = () => {
+  const [publications, setPublications] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/publications")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error fetching publication data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setPublications(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div>
-      <h1>Acheter des joutes pour enfants</h1>
-      <p>Sur cette page, vous pouvez découvrir nos produits à vendre.</p>
-      <ul>
-        <li>
-          <img src="image1.jpg" alt="joute1" />
-          <h2>Joute pour enfant de 5 ans</h2>
-          <p>Prix : 20 €</p>
-          <button>Ajouter au panier</button>
-        </li>
-        <li>
-          <img src="image2.jpg" alt="joute2" />
-          <h2>Joute pour enfant de 8 ans</h2>
-          <p>Prix : 30 €</p>
-          <button>Ajouter au panier</button>
-        </li>
-        <li>
-          <img src="image3.jpg" alt="joute3" />
-          <h2>Joute pour enfant de 10 ans</h2>
-          <p>Prix : 40 €</p>
-          <button>Ajouter au panier</button>
-        </li>
-      </ul>
+      <h1>Liste des publications</h1>
+      <PublicationsList publications={publications} />
     </div>
   );
-}
-
+};
 export default Achat;

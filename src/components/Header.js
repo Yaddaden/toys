@@ -30,7 +30,6 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              exact
               to="/"
             >
               <li> Accueil</li>
@@ -40,7 +39,6 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              exact
               to="/achat"
             >
               <li>Achat</li>
@@ -50,7 +48,6 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              exact
               to="/bebe"
             >
               <li>Bébé</li>
@@ -59,7 +56,6 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              exact
               to="/enfant"
             >
               <li>Enfant</li>
@@ -68,7 +64,6 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              exact
               to="/contact"
             >
               <li>Contact </li>

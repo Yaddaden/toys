@@ -1,5 +1,6 @@
 import BannerJouets from "../components/BannerJouets";
 import "../style/Jouets.css";
+import FormulaireAnnonce from "../components/FormulaireAnnonce";
 
 const Vendre = () => {
   document.title = "jouets!";
@@ -7,8 +8,8 @@ const Vendre = () => {
   return (
     <div className="jouet">
       <BannerJouets />
-      <h1 className="jouetTitle">Les jouets par tranche d'age</h1>
-      <p className="jouetText">Jouets à des petits prix</p>
+
+      <FormulaireAnnonce />
     </div>
   );
 };

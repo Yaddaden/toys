@@ -1,0 +1,25 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem; /* ajout d'une marge en bas pour séparer les éléments */
+    margin-top: 1rem;
+    color: red;
+    
+  }
+  .titlePublication{
+    text-align: center;
+  }
+  .etatJouet{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .select-option{
+    height: 2rem;
+    background: rgb(230, 227, 227);
+    
+  }
+
+
+  
+

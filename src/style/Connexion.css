@@ -71,11 +71,13 @@
   .navigInscription:hover{
     color: #388e3c;
   }
+  .msgBienvenue{
+    color: #388e3c;
+    font-size: 22px;
+  }
 
   @media screen and (max-width: 910px){
-    .msgBienvenue{
-      font-size: 22px;
-    }
+  
     .insButtonD{
 font-size: 10px;
     }
