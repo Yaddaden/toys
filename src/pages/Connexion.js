@@ -16,7 +16,9 @@ const Connexion = () => {
 
   useEffect(() => {
     // Vérifie si l'utilisateur est déjà connecté
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token") || null;
+
+    console.log("TOKENFRONT:", token);
     if (token) {
       setIsLoggedIn(true);
       const vendreVisible = localStorage.getItem("vendreVisible");
@@ -49,7 +51,7 @@ const Connexion = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3001/login", {
+    fetch("http://localhost:3001/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +65,8 @@ const Connexion = () => {
           toast.error(data.error);
           return;
         }
-        localStorage.setItem("token", data.token);
+        const token = data.token;
+        localStorage.setItem("token", token);
         setIsLoggedIn(true);
         setVendreVisible(true);
         toast.success("Vous êtes connecté.");
@@ -119,7 +122,7 @@ const Connexion = () => {
             </button>
           </form>
 
-          {!isLoggedIn ? (
+          {!isLoggedIn && (
             <div className="inscriptionLink">
               <p>
                 Vous n'avez pas de compte ?{" "}
@@ -131,7 +134,7 @@ const Connexion = () => {
                 </span>
               </p>
             </div>
-          ) : null}
+          )}
         </>
       ) : (
         <>

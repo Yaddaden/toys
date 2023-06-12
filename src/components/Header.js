@@ -5,8 +5,13 @@ import logo from "../asset/logo.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  //Ouverture du menu hamburger
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+  //Fermeture automatique du menu hamburger
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -31,6 +36,7 @@ const Header = () => {
                 isActive ? "link link-actif" : "link"
               }
               to="/"
+              onClick={closeMenu}
             >
               <li> Accueil</li>
             </NavLink>
@@ -40,6 +46,7 @@ const Header = () => {
                 isActive ? "link link-actif" : "link"
               }
               to="/achat"
+              onClick={closeMenu}
             >
               <li>Achat</li>
             </NavLink>
@@ -49,6 +56,7 @@ const Header = () => {
                 isActive ? "link link-actif" : "link"
               }
               to="/bebe"
+              onClick={closeMenu}
             >
               <li>Bébé</li>
             </NavLink>
@@ -57,6 +65,7 @@ const Header = () => {
                 isActive ? "link link-actif" : "link"
               }
               to="/enfant"
+              onClick={closeMenu}
             >
               <li>Enfant</li>
             </NavLink>
@@ -65,6 +74,7 @@ const Header = () => {
                 isActive ? "link link-actif" : "link"
               }
               to="/contact"
+              onClick={closeMenu}
             >
               <li>Contact </li>
             </NavLink>

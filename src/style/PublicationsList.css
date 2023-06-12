@@ -7,6 +7,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .publication-card {
@@ -15,7 +17,13 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
-    cursor: pointer;
+  cursor: pointer;
+  
+}
+.publication-image {
+  display: flex;
+  justify-content: center;
+
 }
 
 
@@ -23,14 +31,59 @@
   width: 100%;
   height: auto;
   border-radius: 4px;
-  margin-bottom: 10px;
-  padding-top: 20px
+  margin-bottom: 20px;
+  width: 200px; /* Définissez la largeur souhaitée pour les images */
+  height: 200px; /* Définissez la hauteur souhaitée pour les images */
+  object-fit: cover; /* recadrer l'image pour qu'elle remplisse la taille spécifiée */
+  
 }
 .small-title{
   font-size: 17px;
   color: black;
   font-weight: bold;
+}
+.bEdit{
+  background: #4caf50;
+  font-size: 15px;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+}
+.bEdit:hover{
+  background-color: #388e3c;
+}
+.bDelete{
+  background: #4caf50;
+  font-size: 15px;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+ 
+}
+.bDelete:hover{
+  background-color: #388e3c;
+}
+.bEditeDelete{
+  display: flex;
+  justify-content: space-between;
+ margin-bottom: 20px;
+ 
+}
+@media screen and (max-width: 910px){
+  .publication-container{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
+  }
+}
+
+@media screen and (max-width: 768px){
+  .publication-container{
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+ 
 }
 
 

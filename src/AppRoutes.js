@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Vendre from "./pages/Vendre";
 import Achat from "./pages/Achat";
@@ -9,8 +9,12 @@ import Enfant from "./pages/Enfant";
 import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
+import ModificationPublication from "./components/ModificationPublication";
 
 const AppRoutes = () => {
+  // État d'authentification
+  const isAuthenticated = true;
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -21,6 +25,16 @@ const AppRoutes = () => {
       <Route path="/bebe" element={<Bebe />} />
       <Route path="/enfant" element={<Enfant />} />
       <Route path="/contact" element={<Contact />} />
+
+      {/* Utiliser la modification a la connexion sinon allez se connecter */}
+      {isAuthenticated ? (
+        <Route
+          path="/ModificationPublication/:id"
+          element={<ModificationPublication />}
+        />
+      ) : (
+        <Navigate to="/connexion" />
+      )}
       <Route path="*" element={<Error />} />
     </Routes>
   );

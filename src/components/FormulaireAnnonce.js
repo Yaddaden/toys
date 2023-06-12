@@ -35,22 +35,39 @@ const FormulaireAnnonce = () => {
     console.log("Données du formulaire :", formDataToSend);
 
     // Code pour envoyer les données du formulaire au serveur
-    fetch("http://localhost:3001/publications", {
+    console.log(localStorage.getItem("token"));
+    const token = localStorage.getItem("token") || null;
+
+    // Inclure le token dans l'en-tête Authorization de la requête
+    console.log(token);
+    const requestOptions = {
       method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   " enctype": "multipart/form-data",
-      // },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       body: formDataToSend,
-    })
-      .then((response) => response.json())
+    };
+    fetch("http://localhost:3001/publications", requestOptions)
+      .then((response) => {
+        if (response.status === 401) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data);
         navigate("/achat"); // Redirection vers la page "Achat"
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        if (error.message === "401") {
+          console.error(
+            "Erreur 401: Vérifiez vos identifiants et l'état de votre jeton."
+          );
+        } else {
+          console.error(error);
+        }
+      });
   };
-
   const { nom, marque, age, description, etat, email, telephone, prix } =
     formData;
 
@@ -166,3 +183,6 @@ const FormulaireAnnonce = () => {
 };
 
 export default FormulaireAnnonce;
+
+//-----------------------------------------------------------------
+//-------------------------essaie----------------------------------
