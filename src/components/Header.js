@@ -55,10 +55,10 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "link link-actif" : "link"
               }
-              to="/bebe"
+              to="/publicationOwner"
               onClick={closeMenu}
             >
-              <li>Bébé</li>
+              <li>Publications</li>
             </NavLink>
             <NavLink
               className={({ isActive }) =>

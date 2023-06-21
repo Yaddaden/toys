@@ -1,0 +1,83 @@
+
+.table {
+    margin: 20px;  
+    }
+    .titlePublication h1{
+        text-align: center;
+    }
+  
+  .publication-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .publication-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    cursor: pointer;
+    
+  }
+  .publication-image {
+    display: flex;
+    justify-content: center;
+  
+  }
+  .publication-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: 200px; /* Définissez la largeur souhaitée pour les images */
+    height: 200px; /* Définissez la hauteur souhaitée pour les images */
+    object-fit: cover; /* recadrer l'image pour qu'elle remplisse la taille spécifiée */
+    
+  }
+  .small-title{
+    font-size: 17px;
+    color: black;
+    font-weight: bold;
+  }
+
+.bEdit{
+    background: #4caf50;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .bEdit:hover{
+    background-color: #388e3c;
+  }
+  .bDelete{
+    background: red;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+   width: 100%;
+   margin-top: 10px;
+   
+  }
+  .bDelete:hover{
+    background-color: #388e3c;
+  }
+  .bEditeDelete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   margin-bottom: 20px;
+  }
+  .pageVide{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 100px;
+  }

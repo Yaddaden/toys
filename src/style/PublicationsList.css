@@ -25,8 +25,6 @@
   justify-content: center;
 
 }
-
-
 .publication-image img {
   width: 100%;
   height: auto;
@@ -42,36 +40,7 @@
   color: black;
   font-weight: bold;
 }
-.bEdit{
-  background: #4caf50;
-  font-size: 15px;
-  color: #fff;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  width: 80px;
-}
-.bEdit:hover{
-  background-color: #388e3c;
-}
-.bDelete{
-  background: #4caf50;
-  font-size: 15px;
-  color: #fff;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
- 
-}
-.bDelete:hover{
-  background-color: #388e3c;
-}
-.bEditeDelete{
-  display: flex;
-  justify-content: space-between;
- margin-bottom: 20px;
- 
-}
+
 @media screen and (max-width: 910px){
   .publication-container{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
