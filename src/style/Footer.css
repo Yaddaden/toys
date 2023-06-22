@@ -3,12 +3,24 @@
     justify-content: center;
     flex-direction: column;
     background: gray;
-    min-height: 150px;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
+  }
+  .textFooter{
+    color: white;
+    text-align: center;
+    padding: 20px;
   }
   
-  .textFooter {
+  .Copyright {
     color: white;
     font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 768px){
+    .Copyright {
+      font-size: 13px;
+    }
   }

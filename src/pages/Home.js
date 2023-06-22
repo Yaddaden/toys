@@ -1,9 +1,8 @@
 import React from "react";
 import BannerHome from "../components/BannerHome";
-
 import "../style/Home.css";
-import cub from "../asset/imgCub.jpg";
-import car from "../asset/imgVoiture.jpg";
+import JeuxSociete from "../asset/Jeux-de-societe.png";
+import jouets from "../asset/Jouets.jpg";
 import Connexion from "./Connexion";
 
 const Home = () => {
@@ -19,24 +18,26 @@ const Home = () => {
 
         <div className="containerText">
           <p className="homeTexte">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            necessitatibus, repellendus animi nulla est sunt nostrum eveniet
-            fugit aspernatur velit perferendis ullam consectetur ab itaque
-            corrupti maiores nobis aut ratione quos voluptas tempore vitae
-            corporis. Aut beatae enim consequuntur distinctio voluptas
-            voluptates amet ducimus, vero illum dolorem animi iusto sequi!
-            Aliquid reiciendis veniam veritatis excepturi hic dicta! Sint, esse
-            nulla culpa adipisci aliquid quo natus, quos eum vel hic laudantium
-            nostrum tenetur ducimus consectetur quibusdam? Deleniti, quaerat
-            veniam libero ducimus at maxime, doloremque odit suscipit saepe
-            consequatur, ipsum provident laborum quisquam possimus consectetur
-            dignissimos ipsa totam nisi tempore esse? Adipisci autem assumenda
-            cumque suscipit molestiae quas .
+            Bienvenue sur KIDS-HOUSE, la plateforme en ligne dédiée à l'achat et
+            à la vente de jouets pour enfants entre particuliers ! Découvrez un
+            univers ludique et économique où les familles peuvent se connecter
+            pour trouver et offrir de merveilleux jouets à leurs petits bouts.
+            <br />
+            Notre plateforme facilite les échanges entre parents, grands-parents
+            et toute personne souhaitant offrir une seconde vie aux jouets. Ici,
+            vous trouverez une vaste sélection de jouets de qualité, allant des
+            peluches aux jeux de société, en passant par les puzzles, les
+            véhicules miniatures et bien plus encore. <br /> Rejoignez dès
+            maintenant notre communauté passionnée de parents soucieux de
+            préserver l'environnement tout en offrant de la joie à leurs
+            enfants. Ensemble, créons une nouvelle façon de partager les trésors
+            de l'enfance ! <br /> Prêt à faire le bonheur de vos petits
+            explorateurs ? Parcourez notre sélection de jouets uniques et
+            trouvez celui qui illuminera leurs yeux. Bienvenue sur KIDS-HOUSE !
           </p>
-
           <div className="homeImg">
-            <img src={cub} alt="les cubes" />
-            <img src={car} alt="voiture" />
+            <img src={jouets} alt="Jouets" />
+            <img src={JeuxSociete} alt="Jeux-de-societé" />
           </div>
         </div>
       </div>

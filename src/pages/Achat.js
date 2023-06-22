@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PublicationsList from "../components/PublicationsList";
+import "../style/Achat.css";
 
 const Achat = () => {
   const [publications, setPublications] = useState([]);
@@ -22,7 +23,7 @@ const Achat = () => {
 
   return (
     <div>
-      <h1>Liste des publications</h1>
+      <h1 className="titleAchat">Liste des publications</h1>
       <PublicationsList publications={publications} />
     </div>
   );

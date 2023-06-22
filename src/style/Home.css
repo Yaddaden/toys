@@ -7,7 +7,6 @@
     margin-bottom: 20px;
   }
   .homeUl button{
-    
       background-color: #4caf50;
       color: #fff;
       padding: 10px;
@@ -27,27 +26,25 @@
   
   .homeTitle {
     position: absolute;
-    color: rgb(182, 169, 0);
+    color: rgb(107, 105, 73);
     font-size: 40px;
     left: 10%;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .homeTexte {
-    width: 58%;
     font-size: 18px;
+    
   }
   
   .containerText {
     margin-top: 30px;
-    display: flex;
   }
   
-  .homeImg {
-    display: flex;
-    gap: 20px;
-    width: 20%;
-    height: 20%;
+  .homeImg img {
+    width: 50%;
+    margin-top: 10px;
+    
   }
   
   @media screen and (max-width: 910px) {
@@ -57,12 +54,7 @@
     .homeUl{
       font-size: 17px;
     }
-    .homeImg {
-      display: flex;
-      flex-wrap: wrap;
-      width: 25%;
-      height: 25%;
-    }
+  
   }
   @media screen and (max-width: 768px) {
     .homeTitle {
@@ -81,8 +73,5 @@
       display: flex;
       flex-wrap: wrap;
     }
-    .homeImg {
-      display: flex;
-      flex-wrap: nowrap;
-    }
+  
   }
