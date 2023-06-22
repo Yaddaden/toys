@@ -1,4 +1,5 @@
-.bannerJouets img{
-    max-height: 200px;
-    
+.bannerJouets img{ 
+    max-height: 300px;
+    margin-top: 5px; 
+ 
 }
