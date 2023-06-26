@@ -98,8 +98,7 @@ const PublicationOwner = () => {
                       alt="annonce"
                     />
                   </div>
-                  <div>{publication.title}</div>
-                  <div>{publication.created_at}</div>
+
                   <div>
                     <span className="small-title">Objet à vendre: </span>
                     {publication.nom}
