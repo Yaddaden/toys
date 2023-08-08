@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../style/PublicationDetails.css";
 
 const PublicationDetails = () => {
   const { id } = useParams();
@@ -10,6 +11,8 @@ const PublicationDetails = () => {
     fetch(`http://localhost:3001/publications/${id}`)
       .then((response) => response.json())
       .then((data) => {
+        // Convertir la chaîne JSON en tableau
+        data.images = JSON.parse(data.image);
         setPublication(data);
       })
       .catch((error) => {
@@ -23,17 +26,25 @@ const PublicationDetails = () => {
   if (!publication) {
     return <div>Publication introuvable</div>;
   }
-
+  console.log(publication);
   return (
     <div>
       <div>{publication.created_at}</div>
       <h1 className="titlePublication">Annonce</h1>
+
       <div className="publication-image">
-        <img
-          src={`http://localhost:3001/images/${publication.image}`}
-          alt="annonce"
-        />
+        {publication.images &&
+          publication.images.length > 0 &&
+          publication.images.map((image, index) => (
+            <img
+              key={index}
+              src={`http://localhost:3001/${image}`}
+              alt={`Annonce ${index + 1}`}
+              className={`publication-image-item image-${index}`}
+            />
+          ))}
       </div>
+
       <div>
         <span className="small-title">Objet à vendre: </span>
         {publication.nom}

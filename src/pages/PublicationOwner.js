@@ -92,11 +92,16 @@ const PublicationOwner = () => {
                       Supprimer
                     </button>
                   </div>
+
                   <div className="publication-image">
-                    <img
-                      src={`http://localhost:3001/images/${publication.image}`}
-                      alt="annonce"
-                    />
+                    {publication.image && publication.image.length > 0 && (
+                      <img
+                        src={`http://localhost:3001/${
+                          JSON.parse(publication.image)[0]
+                        }`}
+                        alt={`Annonce ${publication.id}`}
+                      />
+                    )}
                   </div>
 
                   <div>
