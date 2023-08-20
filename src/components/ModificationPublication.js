@@ -48,17 +48,16 @@ const ModificationPublication = () => {
 
   const handleImageChange = (e) => {
     const filesArray = Array.from(e.target.files);
-    if (formData.pictures.length + filesArray.length <= maxImageCount) {
+    // Vérifier le nombre d'images sélectionnées et actuellement affichées
+    const totalImages = formData.pictures.length + filesArray.length;
+    if (totalImages <= maxImageCount) {
       setFormData({
         ...formData,
-        pictures: [
-          ...formData.pictures,
-          ...filesArray.map((file) => file.name),
-        ],
+        pictures: [...formData.pictures, ...filesArray],
       });
-      setSelectedImageCount(formData.pictures.length + filesArray.length);
+      setSelectedImageCount(totalImages);
     } else {
-      alert(`Limite de ${maxImageCount} images atteinte de 5 photos!`);
+      alert(`Limite de ${maxImageCount} images atteinte!`);
     }
   };
 
@@ -131,12 +130,9 @@ const ModificationPublication = () => {
         },
         body: newFormData,
       })
-        .then((response) => {
-          console.log("response", response);
-          return response.json(); // Extraire le contenu JSON de la réponse
-        })
+        .then((response) => response.json())
         .then((data) => {
-          console.log("Data:", data); // Afficher le contenu JSON de la réponse
+          console.log("Data:", data);
           navigate("/achat");
         })
         .catch((error) => {
@@ -160,7 +156,7 @@ const ModificationPublication = () => {
   return (
     <div>
       <h2>Modification de la publication</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>Nom :</label>
         <input
           type="text"
@@ -251,7 +247,7 @@ const ModificationPublication = () => {
           <p>{selectedImageCount} image(s) sélectionnée(s)</p>
           {console.log(formData.pictures)}
 
-          {formData.pictures.map((image, index) => (
+          {formData.pictures.slice(0, maxImageCount).map((image, index) => (
             <div key={index} className="existing-image">
               <img
                 src={`http://localhost:3001/${image}`}
