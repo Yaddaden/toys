@@ -1,9 +1,27 @@
-.publication-image{
-   
+
+.publication-details-container {
+    display: flex; /* Utilisation de la mise en page flexbox */
+    justify-content: space-between; /* Espacement entre les éléments */
+    align-items: flex-start; /* Aligner en haut de la ligne */
+  }
+  
+  .publication-details-left {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .publication-image {
     display: flex;
-    flex-direction: column;
-    align-items: center
-};
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  
+  .publication-image img {
+    margin-right: 5px; /* Espacement entre les images */
+    
+  }
+  
+  
 
 
 

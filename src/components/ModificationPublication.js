@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "../style/formulaireModification.css";
 
 const ModificationPublication = () => {
   const [selectedImageCount, setSelectedImageCount] = useState(0);
@@ -253,13 +254,18 @@ const ModificationPublication = () => {
                 src={`http://localhost:3001/${image}`}
                 alt={`les pubs ${index + 1}`}
               />
-              <button onClick={() => handleDeleteImage(image)}>
+              <button
+                className="insButtonSup"
+                onClick={() => handleDeleteImage(image)}
+              >
                 Supprimer
               </button>
             </div>
           ))}
         </div>
-        <button type="submit">Modifier</button>
+        <button type="submit" className="insButton">
+          Modifier
+        </button>
       </form>
     </div>
   );

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import "../style/Header.css";
 import logo from "../asset/logo.jpg";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   //Ouverture du menu hamburger
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -12,6 +15,25 @@ const Header = () => {
   //Fermeture automatique du menu hamburger
   const closeMenu = () => {
     setIsOpen(false);
+  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Vérifie si l'utilisateur est déjà connecté
+    const token = localStorage.getItem("token") || null;
+
+    console.log("TOKENFRONT:", token);
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    // Déconnexion de l'utilisateur
+    localStorage.removeItem("token");
+    console.log("Après suppression du token :", localStorage.getItem("token"));
+    setIsLoggedIn(false);
+    toast.success("Vous êtes déconnecté.");
   };
 
   return (
@@ -78,6 +100,17 @@ const Header = () => {
             >
               <li>Contact </li>
             </NavLink>
+            {isLoggedIn && (
+              <button
+                className="insButtonD"
+                onClick={() => {
+                  handleLogout();
+                  navigate("/Connexion");
+                }}
+              >
+                Déconnexion
+              </button>
+            )}
           </ul>
         </nav>
       </div>
@@ -86,4 +119,3 @@ const Header = () => {
 };
 
 export default Header;
-//___________________________________________________________________________

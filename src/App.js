@@ -1,13 +1,13 @@
 import React from "react";
 import AppRoutes from "./AppRoutes";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <main className="theMain">
         <AppRoutes />

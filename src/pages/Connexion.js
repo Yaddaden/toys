@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Vendre from "./Vendre";
+// import { Link } from "react-router-dom";
 
 const Connexion = () => {
   const navigate = useNavigate();
@@ -44,12 +45,16 @@ const Connexion = () => {
     });
     // Déconnexion de l'utilisateur
     localStorage.removeItem("token");
+    console.log("Après suppression du token :", localStorage.getItem("token"));
     setIsLoggedIn(false);
     toast.success("Vous êtes déconnecté.");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log("isLoggedIn:", isLoggedIn);
+    console.log("vendreVisible:", vendreVisible);
 
     fetch("http://localhost:3001/users/login", {
       method: "POST",
@@ -77,12 +82,6 @@ const Connexion = () => {
 
   return (
     <>
-      {/* Le bouton déconnexion */}
-      {isLoggedIn && (
-        <button className="insButtonD" onClick={handleLogout}>
-          Déconnexion
-        </button>
-      )}
       {/* Cette partie de isLoggedIn seras invisile pendant la connexion. */}
       {!isLoggedIn ? (
         <>
@@ -128,7 +127,10 @@ const Connexion = () => {
                 Vous n'avez pas de compte ?{" "}
                 <span
                   className="navigInscription"
-                  onClick={() => navigate("/inscription")}
+                  onClick={() => {
+                    handleLogout();
+                    navigate("/inscription");
+                  }}
                 >
                   Cliquez ici
                 </span>
@@ -140,6 +142,24 @@ const Connexion = () => {
         <>
           <h1 className="msgBienvenue">Bienvenue!! vous êtes connectés </h1>
           {vendreVisible && <Vendre />}
+        </>
+      )}
+      {/* le lien vers la réinitialisation de mot de passe */}
+      {!isLoggedIn && (
+        <>
+          <div>
+            <p>
+              Vous avez oublié votre code secret?
+              <span
+                className="resetPasswordButton"
+                onClick={() => {
+                  navigate("/Reinitialisation");
+                }}
+              >
+                Cliquez ici pour réinitialiser votre mot de passe
+              </span>
+            </p>
+          </div>
         </>
       )}
       <ToastContainer />
