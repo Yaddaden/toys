@@ -77,7 +77,7 @@ const PublicationOwner = () => {
           {publications.map((publication) => {
             if (publication.userId === userId) {
               return (
-                <div key={publication.id} className="publication-card">
+                <div key={publication.id} className="publication-card-owner">
                   <div className="bEditeDelete">
                     <button
                       className="bEdit"
@@ -121,8 +121,8 @@ const PublicationOwner = () => {
                     {publication.etat}
                   </div>
                   <div>
-                    <span className="small-title">Email: </span>
-                    {publication.email}
+                    <span className="small-title">Wilaya: </span>
+                    {publication.wilaya}
                   </div>
                   <div>
                     <span className="small-title">Téléphone: </span>
@@ -130,7 +130,7 @@ const PublicationOwner = () => {
                   </div>
                   <div>
                     <span className="small-title">Prix: </span>
-                    {publication.prix}€
+                    {publication.prix}DZD
                   </div>
                   <div>
                     <span className="small-title">Description: </span>

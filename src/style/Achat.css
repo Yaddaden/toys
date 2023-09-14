@@ -1,3 +1,64 @@
 .titleAchat{
     text-align: center;
+    margin-top: 20px;
+}
+.containerSerche{
+    width: auto;
+    height: 260px;
+    background: rgb(155, 163, 155);
+    border-radius: 10px;
+}
+.serche{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.containerType{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.labelType{
+    color:white;
+    font-size: 18px;
+}
+.buttonSerche{
+    background:rgb(238, 245, 238);
+    font-size: 15px;
+    color: #0a0000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 35%;
+    cursor: pointer; 
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+}
+.buttonSerche:hover{
+    background:rgb(213, 230, 213);
+    
+}
+.icon{
+    font-size: 18px;  
+}
+.aucuneAnnonce{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 5px;
+}
+.filtreTypeAnnonce{
+color: orangered;
+font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+    .containerSerche{
+        height: 320px;
+    }
+    .buttonSerche{
+        width: 70%;
+        padding: 5px;
+    }
 }

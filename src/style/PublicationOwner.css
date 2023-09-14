@@ -1,15 +1,16 @@
 
 .bEdit{
-    background: #4caf50;
+    background: orangered;
     font-size: 15px;
     color: #fff;
     padding: 5px;
     border: none;
     border-radius: 5px;
     width: 100%;
+    cursor: pointer; 
   }
   .bEdit:hover{
-    background-color: #388e3c;
+    background-color: orange;
   }
   .bDelete{
     background: red;
@@ -20,10 +21,10 @@
     border-radius: 5px;
    width: 100%;
    margin-top: 10px;
-   
+   cursor: pointer;  
   }
   .bDelete:hover{
-    background-color: #388e3c;
+    background-color: orange;
   }
   .bEditeDelete{
     display: flex;
@@ -36,4 +37,13 @@
     font-size: 25px;
     margin-top: 100px;
   }
- 
+
+  .publication-card-owner {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid rgb(167, 156, 156);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    max-width: 210px;
+  }

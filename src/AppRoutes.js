@@ -17,7 +17,7 @@ import Reinitialisation from "./pages/Reinitialisation";
 const AppRoutes = () => {
   // État d'authentification
   const isAuthenticated = true;
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Gestion de la déconnexion
   const handleLogout = () => {

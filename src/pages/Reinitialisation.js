@@ -59,7 +59,7 @@ const Reinitialisation = () => {
         <div className="form-group">
           <button
             type="button"
-            className="resetPasswordButton"
+            className="insButton"
             onClick={handleResetPassword}
           >
             Envoyer

@@ -37,18 +37,18 @@ const Connexion = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogout = () => {
-    // Réinitialiser les champs de formulaire
-    setFormData({
-      email: "",
-      password: "",
-    });
-    // Déconnexion de l'utilisateur
-    localStorage.removeItem("token");
-    console.log("Après suppression du token :", localStorage.getItem("token"));
-    setIsLoggedIn(false);
-    toast.success("Vous êtes déconnecté.");
-  };
+  // const handleLogout = () => {
+  //   // Réinitialiser les champs de formulaire
+  //   setFormData({
+  //     email: "",
+  //     password: "",
+  //   });
+  //   // Déconnexion de l'utilisateur
+  //   localStorage.removeItem("token");
+  //   console.log("Après suppression du token :", localStorage.getItem("token"));
+  //   setIsLoggedIn(false);
+  //   toast.success("Vous êtes déconnecté.");
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,6 +119,25 @@ const Connexion = () => {
             <button className="insButton" type="submit">
               Connexion
             </button>
+
+            {/* le lien vers la réinitialisation de mot de passe */}
+            {!isLoggedIn && (
+              <>
+                <div className="containerResetPasswordButton">
+                  <p>
+                    Mot de passe oublié?
+                    <span
+                      className="resetPasswordButton"
+                      onClick={() => {
+                        navigate("/Reinitialisation");
+                      }}
+                    >
+                      Cliquez ici !
+                    </span>
+                  </p>
+                </div>
+              </>
+            )}
           </form>
 
           {!isLoggedIn && (
@@ -128,7 +147,7 @@ const Connexion = () => {
                 <span
                   className="navigInscription"
                   onClick={() => {
-                    handleLogout();
+                    // handleLogout();
                     navigate("/inscription");
                   }}
                 >
@@ -144,24 +163,7 @@ const Connexion = () => {
           {vendreVisible && <Vendre />}
         </>
       )}
-      {/* le lien vers la réinitialisation de mot de passe */}
-      {!isLoggedIn && (
-        <>
-          <div>
-            <p>
-              Vous avez oublié votre code secret?
-              <span
-                className="resetPasswordButton"
-                onClick={() => {
-                  navigate("/Reinitialisation");
-                }}
-              >
-                Cliquez ici pour réinitialiser votre mot de passe
-              </span>
-            </p>
-          </div>
-        </>
-      )}
+
       <ToastContainer />
     </>
   );

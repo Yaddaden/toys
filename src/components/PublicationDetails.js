@@ -64,8 +64,8 @@ const PublicationDetails = () => {
             {publication.etat}
           </div>
           <div>
-            <span className="small-title">Email: </span>
-            {publication.email}
+            <span className="small-title">Wilaya: </span>
+            {publication.wilaya}
           </div>
           <div>
             <span className="small-title">Téléphone: </span>
@@ -73,7 +73,7 @@ const PublicationDetails = () => {
           </div>
           <div>
             <span className="small-title">Prix: </span>
-            {publication.prix}€
+            {publication.prix}DZD
           </div>
           <div>
             <span className="small-title">Description: </span>

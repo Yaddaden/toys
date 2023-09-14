@@ -39,7 +39,7 @@ const PublicationsList = ({ publications, userId }) => {
               </div>
               <div>
                 <span className="small-title">Prix: </span>
-                {publication.prix}€
+                <span className="prix"> {publication.prix}DZD </span>
               </div>
             </div>
           );

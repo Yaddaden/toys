@@ -8,6 +8,66 @@ const ModificationPublication = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const wilayas = [
+    "Adrar",
+    "Aïn Defla",
+    "Aïn Témouchent",
+    "Alger",
+    "Annaba",
+    "Batna",
+    "Béchar",
+    "Béjaïa",
+    "Biskra",
+    "Blida",
+    "Bordj Bou Arreridj",
+    "Bouira",
+    "Boumerdès",
+    "Chlef",
+    "Constantine",
+    "Djelfa",
+    "El Bayadh",
+    "El Oued",
+    "El Tarf",
+    "Ghardaïa",
+    "Guelma",
+    "Illizi",
+    "Jijel",
+    "Khenchela",
+    "Laghouat",
+    "M'Sila",
+    "Mascara",
+    "Médéa",
+    "Mila",
+    "Mostaganem",
+    "Naâma",
+    "Oran",
+    "Ouargla",
+    "Oum El Bouaghi",
+    "Relizane",
+    "Saïda",
+    "Sétif",
+    "Sidi Bel Abbès",
+    "Skikda",
+    "Souk Ahras",
+    "Tamanrasset",
+    "Tébessa",
+    "Tiaret",
+    "Tindouf",
+    "Tipaza",
+    "Tissemsilt",
+    "Tizi Ouzou",
+    "Tlemcen",
+    "Touggourt",
+    "Tizi Ouzou",
+    "Tlemcen",
+    "Tébessa",
+    "Tamanrasset",
+    "Tébessa",
+    "Tiaret",
+    "Tindouf",
+    "Tipaza",
+    "Tissemsilt",
+  ];
 
   const [publication, setPublication] = useState({
     nom: "",
@@ -15,7 +75,7 @@ const ModificationPublication = () => {
     age: "",
     description: "",
     etat: "",
-    email: "",
+    wilaya: "",
     telephone: "",
     prix: "",
   });
@@ -117,7 +177,7 @@ const ModificationPublication = () => {
     newFormData.append("age", publication.age);
     newFormData.append("description", publication.description);
     newFormData.append("etat", publication.etat);
-    newFormData.append("email", publication.email);
+    newFormData.append("wilaya", publication.wilaya);
     newFormData.append("telephone", publication.telephone);
     newFormData.append("prix", publication.prix);
 
@@ -206,14 +266,26 @@ const ModificationPublication = () => {
             <option value="mauvais">Mauvais</option>
           </select>
         </div>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={publication.email}
-          placeholder="mail@mail.com"
-          onChange={handleChange}
-        />
+
+        <div className="etatJouet">
+          <label htmlFor="wilaya">Wilaya</label>
+          <select
+            type="wilaya"
+            id="wilaya"
+            name="wilaya"
+            value={publication.wilaya}
+            placeholder="wilaya"
+            onChange={handleChange}
+            className="select-option"
+          >
+            <option value="">Sélectionnez une wilaya</option>
+            {wilayas.map((wilaya, index) => (
+              <option key={index} value={wilaya}>
+                {wilaya}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <label>Téléphone</label>
         <input

@@ -61,31 +61,39 @@
   .insButton:hover {
     background-color: #388e3c;
   }
+
+  .inscriptionLink{
+    text-align: center;
+  }
   .navigInscription{
     font-size: 20px;
     font-weight: 900;
-    color:#c62828;
+    color:#388e3c;
     cursor: pointer;
     text-decoration: underline;
+    
   }
   .navigInscription:hover{
-    color: #388e3c;
+    color: orangered;
   }
   .msgBienvenue{
     color: #388e3c;
     font-size: 22px;
   }
-  .resetPasswordButton{
-   
-    color: #dd0c0c;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-   font-size: 18px;
+  .containerResetPasswordButton{
+    text-align: center;
   }
-
+  .resetPasswordButton{
+    color:#c62828;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .resetPasswordButton:hover{
+    color: orangered;
+  }
   @media screen and (max-width: 910px){
   
     .insButtonD{

@@ -7,6 +7,66 @@ const FormulaireAnnonce = () => {
   const maxImageCount = 5;
   const token = localStorage.getItem("token") || null;
   const navigate = useNavigate();
+  const wilayas = [
+    "Adrar",
+    "Aïn Defla",
+    "Aïn Témouchent",
+    "Alger",
+    "Annaba",
+    "Batna",
+    "Béchar",
+    "Béjaïa",
+    "Biskra",
+    "Blida",
+    "Bordj Bou Arreridj",
+    "Bouira",
+    "Boumerdès",
+    "Chlef",
+    "Constantine",
+    "Djelfa",
+    "El Bayadh",
+    "El Oued",
+    "El Tarf",
+    "Ghardaïa",
+    "Guelma",
+    "Illizi",
+    "Jijel",
+    "Khenchela",
+    "Laghouat",
+    "M'Sila",
+    "Mascara",
+    "Médéa",
+    "Mila",
+    "Mostaganem",
+    "Naâma",
+    "Oran",
+    "Ouargla",
+    "Oum El Bouaghi",
+    "Relizane",
+    "Saïda",
+    "Sétif",
+    "Sidi Bel Abbès",
+    "Skikda",
+    "Souk Ahras",
+    "Tamanrasset",
+    "Tébessa",
+    "Tiaret",
+    "Tindouf",
+    "Tipaza",
+    "Tissemsilt",
+    "Tizi Ouzou",
+    "Tlemcen",
+    "Touggourt",
+    "Tizi Ouzou",
+    "Tlemcen",
+    "Tébessa",
+    "Tamanrasset",
+    "Tébessa",
+    "Tiaret",
+    "Tindouf",
+    "Tipaza",
+    "Tissemsilt",
+  ];
 
   const [formData, setFormData] = useState({
     nom: "",
@@ -14,7 +74,7 @@ const FormulaireAnnonce = () => {
     age: "",
     description: "",
     etat: "",
-    email: "",
+    wilaya: "",
     telephone: "",
     prix: "",
     pictures: [],
@@ -85,7 +145,7 @@ const FormulaireAnnonce = () => {
         }
       });
   };
-  const { nom, marque, age, description, etat, email, telephone, prix } =
+  const { nom, marque, age, description, etat, wilaya, telephone, prix } =
     formData;
 
   useEffect(() => {
@@ -115,7 +175,7 @@ const FormulaireAnnonce = () => {
         onChange={handleChange}
       />
 
-      <label htmlFor="age">Age</label>
+      <label htmlFor="age">Age (enfant)</label>
       <input
         type="number"
         id="age"
@@ -154,15 +214,26 @@ const FormulaireAnnonce = () => {
           <option value="mauvais">Mauvais</option>
         </select>
       </div>
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={email}
-        placeholder="mail@mail.com"
-        onChange={handleChange}
-      />
+
+      <div className="etatJouet">
+        <label htmlFor="wilaya">Wilaya</label>
+        <select
+          type="wilaya"
+          id="wilaya"
+          name="wilaya"
+          value={wilaya}
+          placeholder="wilaya"
+          onChange={handleChange}
+          className="select-option"
+        >
+          <option value="">Sélectionnez une wilaya</option>
+          {wilayas.map((wilaya, index) => (
+            <option key={index} value={wilaya}>
+              {wilaya}
+            </option>
+          ))}
+        </select>
+      </div>
 
       <label htmlFor="telephone">Téléphone</label>
       <input
