@@ -8,6 +8,7 @@ const Achat = () => {
   const [filtrePrixMax, setFiltrePrixMax] = useState(""); // État du filtre par prix maximum
 
   const [publicationsFiltrees, setPublicationsFiltrees] = useState([]); // État pour les publications filtrées
+  const [rechercheEffectuee, setRechercheEffectuee] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:3001/publications")
@@ -23,7 +24,7 @@ const Achat = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [rechercheEffectuee]);
 
   // Fonction pour filtrer les publications en fonction du type de jouet et du prix maximum
   const filtrerPublications = () => {
@@ -52,6 +53,7 @@ const Achat = () => {
   const handleRecherche = () => {
     const publicationsFiltrees = filtrerPublications();
     setPublicationsFiltrees(publicationsFiltrees);
+    setRechercheEffectuee(true);
   };
 
   return (
@@ -97,7 +99,7 @@ const Achat = () => {
       ) : (
         // <PublicationsList publications={publications} />
         <div>
-          {filtreType ? (
+          {filtreType && rechercheEffectuee ? (
             <div className="aucuneAnnonce">
               Aucune publication de type{" "}
               <span className="filtreTypeAnnonce">({filtreType})</span> n'a été
